@@ -35,7 +35,8 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="{{route("home")}}">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route("posts.index")}}">Posts</a></li>
-
+                        <li class="nav-item" ><a class="nav-link" href="{{route("categories.index")}}">Categorie</a></li>
+                        <li class="nav-item" ><a class="nav-link" href="{{route("tags.index")}}">Tag</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

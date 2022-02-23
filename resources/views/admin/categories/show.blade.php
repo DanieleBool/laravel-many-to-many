@@ -6,42 +6,27 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>{{$post->title}}</h4>
+                    <h4>{{$category->name}}</h4>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <a href="{{route("posts.edit", $post->id)}}"><button type="button" class="btn btn-warning">Modifica</button></a>
-                        <form class="d-inline" action="{{route("posts.destroy", $post->id)}}" method="POST">
+                        <a href="{{route("categories.edit", $category->id)}}"><button type="button" class="btn btn-warning">Modifica</button></a>
+                        <form class="d-inline" action="{{route("categories.destroy", $category->id)}}" method="POST">
                             @csrf
                             @method("DELETE")
                             <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     </div>
-                    <div class="tags d-flex">
-                        <div class="my-3 mr-3">
-                            @if ($post->published)
-                                <h5>Stato: <span class="badge badge-success">Pubblicato</span></h5>
-                            @else
-                                <h5>Stato: <span class="badge badge-info text-white">Bozza</span></h5>
-                            @endif
-                        </div>
-                        <div class="my-3">
-                            @if ($post->category != null)
-                            <h5>Categoria: <span class="badge badge-primary">{{$post->category->name}}</span></h5>
-                            @endif
-                        </div>
-                    </div>
-                        <div>
-                            @if (count($post->tags) > 0)
-                                <h5 class="d-inline">Tags:</h5>
-                                @foreach ($post->tags as $tag)
-                                <h5 class="d-inline"><span class="badge badge-success">{{$tag->name}}</span></h5>
+                    <div class="my-3">
+                        Slug: {{$category->slug}}
+                        @if (count($category->post) > 0)
+                            <h3 class="my-3">Lista post associati:</h3>
+                            <ul>
+                                @foreach ($category->post as $post)
+                                    <li>{{$post->title}}</li>
                                 @endforeach
-                            @endif
-                        </div>
-                        <div class="my-3">
-                            {{$post->content}}
-                        </div>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>

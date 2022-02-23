@@ -86,9 +86,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Laravel</a>
                     <a href="{{route("posts.index")}}">Posts</a>
-                    <a href="{{route("home")}}">Dashboard</a>
+                    <a href="{{route("categories.index")}}">Categorie</a>
+                    <a href="{{route("tags.index")}}">Tag</a>
                 </div>
             </div>
         </div>
